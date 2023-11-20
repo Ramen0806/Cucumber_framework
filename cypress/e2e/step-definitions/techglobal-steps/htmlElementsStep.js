@@ -1,9 +1,11 @@
 const { When, Then } = require('@badeball/cypress-cucumber-preprocessor')
 const TGHtmlElementsPage = require('../../../pages/TGHtmlElementsPage')
+const TGDynamicTables = require('../../../pages/TGDynamicTables')
 
 
 const tgHtmlElementsPage = new TGHtmlElementsPage()
 
+const dynamicTables = new TGDynamicTables()
 
 
 When('user click on the {string} card', (cardName) => {
@@ -24,9 +26,13 @@ Then('the URL should contain {string}', (url) => {
 When('user click on the {string} button', (button) => {
     switch (button) {
         case 'Register':
+            return tgHtmlElementsPage.clickButtonByText(button)
         case 'Sign in':
-            tgHtmlElementsPage.clickButtonByText(button)
-            break
+            return tgHtmlElementsPage.clickButtonByText(button)
+        case 'ADD PRODUCT':
+          return  dynamicTables.clickAddProductBtnByText(button)
+        case 'CLOSE':
+          return dynamicTables.clickClosePopUpBtn(button)
         default:
     }
 })
@@ -103,8 +109,5 @@ Then(/^both "([^"]*)" and "([^"]*)" checkboxes should be checked$/, (checkbox1, 
 Then(/^the "([^"]*)" checkbox remains unchecked$/, (checkbox) => {
     tgHtmlElementsPage.getCheckboxByLabel(checkbox).should('not.be.checked')
 })
-
-
-
 
 

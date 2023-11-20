@@ -2,7 +2,7 @@ const TGBasePage = require('./TGBasePage')
 
 class TGHtmlElementsPage extends TGBasePage {
     getButtons() {
-        return cy.get('#register_button, #signin_button')
+        return cy.get('#register_button, #signin_button, #add_product_btn')
     }
 
     getButtonMessage() {

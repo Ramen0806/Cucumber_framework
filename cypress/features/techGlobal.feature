@@ -45,3 +45,20 @@ Feature: Interaction with the TechGlobal Training Frontend
         When user select the "Apple" and "Tesla" checkboxes
         Then both "Apple" and "Tesla" checkboxes should be checked
         And the "Microsoft" checkbox remains unchecked
+
+    @DynamicTables
+    Scenario: Validate dynamic tables pop-up window
+        Given user navigates to 'https://techglobal-training.com/frontend'
+        When user click on the 'Project - Dynamic Tables' card
+        Then user should see the 'Project - Dynamic Tables' page heading
+        When user click on the 'ADD PRODUCT' button
+        Then user should see Add New Product pop-up
+        When user click on the 'CLOSE' button
+        Then user should not see Add New Product pop-up
+
+
+
+
+
+
+
