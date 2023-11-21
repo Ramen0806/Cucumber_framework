@@ -1,11 +1,11 @@
 const { When, Then } = require('@badeball/cypress-cucumber-preprocessor')
 const TGHtmlElementsPage = require('../../../pages/TGHtmlElementsPage')
-const TGDynamicTables = require('../../../pages/TGDynamicTables')
+
 
 
 const tgHtmlElementsPage = new TGHtmlElementsPage()
 
-const dynamicTables = new TGDynamicTables()
+
 
 
 When('user click on the {string} card', (cardName) => {
@@ -23,19 +23,6 @@ Then('the URL should contain {string}', (url) => {
 })
 
 
-When('user click on the {string} button', (button) => {
-    switch (button) {
-        case 'Register':
-            return tgHtmlElementsPage.clickButtonByText(button)
-        case 'Sign in':
-            return tgHtmlElementsPage.clickButtonByText(button)
-        case 'ADD PRODUCT':
-          return  dynamicTables.clickAddProductBtnByText(button)
-        case 'CLOSE':
-          return dynamicTables.clickClosePopUpBtn(button)
-        default:
-    }
-})
 
 
 Then('the text under it should be {string}', (message) => {
